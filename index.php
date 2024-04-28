@@ -1,3 +1,7 @@
+<?php 
+require("connect-db.php"); 
+?>
+
 <html lang="en">
 
 <head>
