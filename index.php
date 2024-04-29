@@ -3,14 +3,6 @@ require("connect-db.php");
 require("request-db.php");
 ?>
 
-<?php // form handling
-
-$list_of_requests = getMovieInfo(); 
-$first_10 = array_slice($list_of_requests, 0, 10);
-var_dump($first_10); // debug
-
-?>
-
 <html lang="en">
 
 <head>
