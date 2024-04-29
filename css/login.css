@@ -1,60 +1,75 @@
-/* General Styles */
-body, html {
-    height: 100%;
+/* Overall body styling to ensure consistency in background and fonts */
+body {
+    font-family: 'Roboto', 'Sen', sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: #ecf0f1;
-}
-
-/* Center the form on the page */
-.auth-container {
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
+    height: 100vh;
 }
 
-.login-form {
+/* Styling for the login and signup form container */
+.login-form-container {
     background: #ffffff;
-    padding: 40px;
+    padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 350px;
 }
 
-.form-group {
+/* Style for the form headers */
+.login-form h2 {
+    color: #333;
+    text-align: center;
     margin-bottom: 20px;
 }
 
-.form-group label {
+/* Styles for form controls (input labels and input fields) */
+.form-control {
+    margin-bottom: 15px;
+}
+
+.form-control label {
     display: block;
     margin-bottom: 5px;
+    color: #666;
 }
 
-.form-group input {
+.form-control input {
     width: 100%;
     padding: 10px;
-    border: 1px solid #ddd;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
 }
 
-button {
+/* Button styling for login and signup */
+.btn-login {
     width: 100%;
     padding: 10px;
-    border: none;
-    background: #3498db;
+    background-color: #007bff;
     color: white;
-    cursor: pointer;
+    border: none;
     border-radius: 4px;
+    cursor: pointer;
     margin-top: 10px;
 }
 
-button:hover {
-    background: #2980b9;
+.btn-login:hover {
+    background-color: #0056b3;
 }
 
-.login-form p {
+/* Link styling for "Forgot Password?" and "Sign up" */
+.login-links a, .signup-text a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 10px;
+}
+
+.login-links a:hover, .signup-text a:hover {
+    text-decoration: underline;
 }
