@@ -300,5 +300,42 @@
           display: none;
       }
   }
-  
-  
+
+.content-container {
+    padding: 20px;
+    margin: 20px auto;  /* Center it on the page if not full width */
+    max-width: 800px; /* Optional: set a max-width for better readability on large screens */
+}
+
+.watchlist-item {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    background-color: #fff;  /* Ensure readability */
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.movie-poster {
+    width: 100px; /* Adjust size accordingly */
+    margin-right: 20px;
+    border-radius: 5px; /* Soften edges */
+}
+
+.movie-info {
+    flex-grow: 1;
+}
+
+.remove-btn {
+    padding: 5px 10px;
+    background-color: #f44336; /* Red color for delete action */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background-color: #d32f2f; /* Darker shade on hover */
+}
