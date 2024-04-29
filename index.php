@@ -27,12 +27,9 @@ require("request-db.php");
                 <h1 class="logo">review</h1>
             </div>
 
-            <div class="search-container">
-                <input type="text" placeholder="Search movies..." class="search-input">
                 <a href="watchlist.php">
                     <button class="search-button"><i class="fas fa-search"></i></button>
                 </a>
-            </div>
 
             <div class="menu-container">
                 <ul class="menu-list">
@@ -42,7 +39,7 @@ require("request-db.php");
                 </ul>
             </div>
             <div class="profile-container">
-                <img class="profile-picture" src="profile.jpg" alt="">
+                <img class="profile-picture" src="img/profile.jpg" alt="">
                 <div class="profile-text-container">
                     <span class="profile-text">Profile</span>
                     <i class="fas fa-caret-down"></i>
@@ -52,7 +49,7 @@ require("request-db.php");
     </div>
     <div class="sidebar">
         <a href="index.php" class="left-menu-icon">
-            <i class="fas fa-home"></i><!-- if you want text beside the icon -->
+            <i class="fas fa-home"></i>
         </a>
         <a href="profile.php" class="profile-link">
             <i class="left-menu-icon fas fa-users"></i>
