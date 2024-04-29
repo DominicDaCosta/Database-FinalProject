@@ -29,7 +29,9 @@ require("request-db.php");
 
             <div class="search-container">
                 <input type="text" placeholder="Search movies..." class="search-input">
-                <button class="search-button"><i class="fas fa-search"></i></button>
+                <a href="watchlist.php">
+                    <button class="search-button"><i class="fas fa-search"></i></button>
+                </a>
             </div>
 
             <div class="menu-container">

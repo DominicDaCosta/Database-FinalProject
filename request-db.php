@@ -91,7 +91,7 @@ function getJobsbyCrewID($crewID, $movieID) {
 function getReviewbyUserID($userID)
 {
     global $db;
-    $query = "select title, rating, content from review natural join movie where userID=:userID";
+    $query = "select movieID, title, rating, content from review natural join movie where userID=:userID";
 
     $statement = $db->prepare($query);
 
@@ -121,7 +121,7 @@ function getReviewbyMovieID($movieID)
 function getWatchlistbyUserID($userID)
 {
     global $db;
-    $query = "select ltitle, list_desc from watchlist where userID=:userID";
+    $query = "select listID, ltitle, list_desc from watchlist where userID=:userID";
 
     $statement = $db->prepare($query);
 
@@ -169,7 +169,7 @@ function addReview($userID, $movieID, $rating, $content)
     }
 }
 
-function addWatchlist($ltitle, $userID)
+function addWatchlist($ltitle, $userID, $list_desc)
 {
     global $db;
     $query = "INSERT INTO watchlist (ltitle, list_desc, userID) VALUES (:ltitle, :list_desc, :userID)";
@@ -232,8 +232,22 @@ function updateStatus($movieID, $listID, $has_watched)
     $statement = $db->prepare($query);
 
     $statement->bindValue(':movieID', $movieID);
-    $statement->bindValue(':listID', $movieID);
+    $statement->bindValue(':listID', $listID);
     $statement->bindValue(':has_watched', $has_watched);
+
+    $statement->execute();
+    $statement->closeCursor();
+}
+
+function updateWatchlist($listID, $ltitle, $list_desc)
+{
+    global $db;
+    $query = "update watchlist set ltitle=:ltitle, list_desc=:list_desc where listID=:listID";
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':listID', $listID);
+    $statement->bindValue(':ltitle', $ltitle);
+    $statement->bindValue(':list_desc', $list_desc);
 
     $statement->execute();
     $statement->closeCursor();
