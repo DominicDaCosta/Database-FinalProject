@@ -29,6 +29,12 @@
     justify-content: center; /* Centers the search bar */
   }
 
+  .search-result-container {
+    margin-top: 10px;
+    margin-left: 70px; 
+    align-items: center;
+  }
+
   .search-input {
     padding: 8px;
     margin-right: 8px;

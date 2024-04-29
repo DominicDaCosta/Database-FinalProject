@@ -27,7 +27,7 @@ require("request-db.php");
                 <h1 class="logo">review</h1>
             </div>
 
-                <a href="watchlist.php">
+                <a href="search.php">
                     <button class="search-button"><i class="fas fa-search"></i></button>
                 </a>
 
