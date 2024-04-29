@@ -7,7 +7,7 @@ require("request-db.php");
 
 $list_of_requests = getMovieInfo(); 
 $first_10 = array_slice($list_of_requests, 0, 10);
-// var_dump($first_10); // debug
+var_dump($first_10); // debug
 
 ?>
 
