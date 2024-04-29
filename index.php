@@ -181,43 +181,36 @@ require("request-db.php");
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="img/movie17.jpg" alt="">
                             <span class="movie-list-item-title">Sense & Sensibility</span>
-                            <p class="movie-list-item-desc">Place Holder.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="img/movie18.jpg" alt="">
                             <span class="movie-list-item-title">Four Rooms</span>
-                            <p class="movie-list-item-desc">Place Holder.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="img/movie19.jpg" alt="">
                             <span class="movie-list-item-title">Ace Ventura: When Nature Calls</span>
-                            <p class="movie-list-item-desc">Place Holder.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="img/movie20.jpg" alt="">
                             <span class="movie-list-item-title">Money Train</span>
-                            <p class="movie-list-item-desc">Place Holder.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="img/movie21.jpg" alt="">
                             <span class="movie-list-item-title">Get Shorty</span>
-                            <p class="movie-list-item-desc">Place Holder.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="img/movie22.jpg" alt="">
                             <span class="movie-list-item-title">Copycat</span>
-                            <p class="movie-list-item-desc">Place Holder.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="img/movie23.jpg" alt="">
                             <span class="movie-list-item-title">Assassins</span>
-                            <p class="movie-list-item-desc">Place Holder.</p>
                             <button class="movie-list-item-button">Watch</button>
                         </div>
                     </div>
