@@ -61,7 +61,7 @@ require("request-db.php");
             <div class="featured-content"
                 style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/f-1.jpg');">
                 <img class="featured-title" src="img/movie1.jpg" alt="">
-                <p class="featured-desc">Place Holder.</p>
+                <p class="featured-desc">Woody (Tom Hanks), a good-hearted cowboy doll who belongs to a young boy named Andy (John Morris), sees his position as Andy's favorite toy jeopardized when his parents buy him a Buzz Lightyear (Tim Allen) action figure.</p>
                 <button class="featured-button">Rate</button>
             </div>
             <div class="movie-list-container">
