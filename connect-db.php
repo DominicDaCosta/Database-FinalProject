@@ -1,29 +1,36 @@
 <?php
+// Database credentials
 $username = 'qdl2pqs'; 
 $password = 'B@con@vocado!';
 $host = 'mysql01.cs.virginia.edu';
 $dbname = 'qdl2pqs';
 $dsn = "mysql:host=$host;dbname=$dbname";
 
-try 
-{
-//  $db = new PDO("mysql:host=$hostname;dbname=db-demo", $username, $password);
-   $db = new PDO($dsn, $username, $password);
+try {
+    // Connect to the database using PDO
+    $db = new PDO($dsn, $username, $password);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    
-   // dispaly a message to let us know that we are connected to the database 
-   // echo "<p>You are connected to the database -- host=$host</p>";
+    // DB Security -PDO statements
+    $stmt = $db->prepare("SELECT * FROM users WHERE username = ?");
+    $stmt->execute([$username]);
+    
+    // Example of fetching data
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    
+    // Example of password verification using password_verify
+    if ($user && password_verify($password, $user['password'])) {
+        // Authentication successful
+        echo "Authentication successful";
+    } else {
+        // Authentication failed
+        echo "Authentication failed";
+    }
+} catch (PDOException $e) {
+    $error_message = $e->getMessage();        
+    echo "<p>An error occurred while connecting to the database: $error_message </p>";
+} catch (Exception $e) {
+    $error_message = $e->getMessage();
+    echo "<p>Error message: $error_message </p>";
 }
-catch (PDOException $e)     // handle a PDO exception (errors thrown by the PDO library)
-{
-   // Call a method from any object, use the object's name followed by -> and then method's name
-   // All exception objects provide a getMessage() method that returns the error message 
-   $error_message = $e->getMessage();        
-   echo "<p>An error occurred while connecting to the database: $error_message </p>";
-}
-catch (Exception $e)       // handle any type of exception
-{
-   $error_message = $e->getMessage();
-   echo "<p>Error message: $error_message </p>";
-}
-
 ?>
