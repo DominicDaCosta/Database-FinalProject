@@ -9,7 +9,42 @@
     <title>Submit a Review - Movie Watchlist</title>
 </head>
 <body>
-    <!-- Existing navigation and sidebar -->
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="logo-container">
+                <h1 class="logo">review</h1>
+            </div>
+
+            <div class="search-container">
+                <input type="text" placeholder="Search movies..." class="search-input">
+                <button class="search-button"><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="menu-container">
+                <ul class="menu-list">
+                    <li class="menu-list-item active">Home</li>
+                    <li class="menu-list-item">Rate</li>
+
+                </ul>
+            </div>
+            <div class="profile-container">
+                <img class="profile-picture" src="img/profile.jpg" alt="">
+                <div class="profile-text-container">
+                    <span class="profile-text">Profile</span>
+                    <i class="fas fa-caret-down"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a href="index.html" class="left-menu-icon">
+            <i class="fas fa-home"></i>
+        </a>
+        <a href="profile.html" class="profile-link">
+            <i class="left-menu-icon fas fa-users"></i>
+        </a>
+        <a href="watchlist.html" class="left-menu-icon fas fa-bookmark"></a>
+    </div>
     <div class="container">
         <div class="content-container">
             <h1>Submit a Review</h1>
