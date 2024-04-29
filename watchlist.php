@@ -58,7 +58,7 @@
         <input type="text" id="userID" name="userID" value="<?php echo isset($userID) ? htmlspecialchars($userID) : ''; ?>">
         <button type="submit">Submit</button>
     </form>
-    
+
     <div class="sidebar">
         <a href="index.php" class="left-menu-icon">
             <i class="fas fa-home"></i>
@@ -68,12 +68,61 @@
         </a>
         <a href="watchlist.php" class="left-menu-icon fas fa-bookmark"></a>
     </div>
-    <div class="container">
-        <div class="content-container">
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <?php if (!empty($watchlists)): ?>
+        <h2>Your Watchlists:</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th><b>Delete?</b></th>
+                    <th><b>Edit</b></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($watchlists as $watchlist): ?>
+                    <tr>
+                        <td><?php echo $watchlist['ltitle']; ?></td>
+                        <td><?php echo $watchlist['list_desc']; ?></td>
+                        <td>
+                            <form action="watchlist.php" method="post"> 
+                                <input type="submit" value="Delete" name="deleteBtn" 
+                                    class="btn btn-danger" /> 
+                                <input type="hidden" name="listID" 
+                                    value="<?php echo $watchlist['listID']; ?>" /> 
+                            </form>
+                        </td>
+                        <td>
+                            <form action="watchlist.php" method="post"> 
+                                <input type="text" name="ltitle" 
+                                    value="<?php echo $watchlist['ltitle']; ?>" />
+                                <input type="text" name="list_desc" 
+                                    value="<?php echo $watchlist['list_desc']; ?>" />
+                                <input type="hidden" name="listID" 
+                                    value="<?php echo $watchlist['listID']; ?>" />
+                                <input type="submit" value="Update" name="updateBtn" 
+                                    class="btn btn-primary" /> 
+                            </form>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+            </tbody>
+        </table>
+    <?php else: ?>
+        <p>No watchlists found for this user.</p>
+    <?php endif; ?>
+
+    <h2>Add a New Watchlist:</h2>
+    <form action="watchlist.php" method="post">
+        <label for="userID">Your UserID:</label>
+        <input type="text" id="userID" name="userID">
+        <label for="ltitle">Title:</label>
+        <input type="text" id="ltitle" name="ltitle">
+        <label for="list_desc">Description:</label>
+        <input type="text" id="list_desc" name="list_desc">
+        <button type="submit" name="addBtn">Add Watchlist</button>
+    </form>
     
     <script src="js/app.js"></script>
 </body>
