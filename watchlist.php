@@ -8,7 +8,21 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-    <title>Watchlist</title>
+    <title>Watchlists</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 <body>
     <div class="navbar">
@@ -37,6 +51,14 @@
             </div>
         </div>
     </div>
+
+    <h1>Watchlists</h1>
+    <form action="watchlist.php" method="post">
+        <label for="userID">Enter your userID:</label>
+        <input type="text" id="userID" name="userID" value="<?php echo isset($userID) ? htmlspecialchars($userID) : ''; ?>">
+        <button type="submit">Submit</button>
+    </form>
+    
     <div class="sidebar">
         <a href="index.php" class="left-menu-icon">
             <i class="fas fa-home"></i>
