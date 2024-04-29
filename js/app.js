@@ -33,3 +33,31 @@ ball.addEventListener("click", () => {
   });
   ball.classList.toggle("active");
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  const searchInput = document.querySelector('.search-input');
+  const searchButton = document.querySelector('.search-button');
+  const movieTitles = document.querySelectorAll('.movie-list-item-title');
+
+  function searchMovies() {
+      const searchText = searchInput.value.toLowerCase();
+
+      movieTitles.forEach(title => {
+          const movieItem = title.closest('.movie-list-item');
+          if (title.textContent.toLowerCase().includes(searchText)) {
+              movieItem.style.display = ''; // Show the movie item
+          } else {
+              movieItem.style.display = 'none'; // Hide the movie item
+          }
+      });
+  }
+
+  searchButton.addEventListener('click', searchMovies);
+  searchInput.addEventListener('keyup', function(event) {
+      // Also search as the user types (optional)
+      if (event.key === "Enter") {
+          searchMovies();
+      }
+  });
+});
