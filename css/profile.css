@@ -1,0 +1,66 @@
+/* General Styles */
+body, html {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #ecf0f1;
+}
+
+/* Profile Container */
+.profile-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    border-radius: 8px;
+}
+
+/* User Profile Picture */
+.user-profile-pic {
+    flex-basis: 100px;
+    margin: 20px;
+}
+
+.user-profile-pic img {
+    width: 100px; /* Adjust as needed */
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #3498db;
+}
+
+/* User Stats */
+.user-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.stats-movies-watched, .stats-reviews-written {
+    background: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: 10px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Reviews Section */
+.reviews-section {
+    width: 100%;
+    padding: 20px;
+}
+
+.review {
+    background: #fff;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.review p {
+    margin: 0;
+}
