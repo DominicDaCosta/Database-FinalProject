@@ -1,5 +1,8 @@
 <?php 
-require("connect-db.php"); 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require("connect-db.php");    // include("connect-db.php");
 require("request-db.php");
 ?>
 
@@ -9,7 +12,7 @@ require("request-db.php");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
         rel="stylesheet">
@@ -42,25 +45,23 @@ require("request-db.php");
                     <span class="profile-text">Profile</span>
                     <i class="fas fa-caret-down"></i>
                 </div>
-                <div class="toggle">
-                    <i class="fas fa-moon toggle-icon"></i>
-                    <i class="fas fa-sun toggle-icon"></i>
-                    <div class="toggle-ball"></div>
-                </div>
             </div>
         </div>
     </div>
     <div class="sidebar">
-        <i class="left-menu-icon fas fa-search"></i>
-        <i class="left-menu-icon fas fa-home"></i>
-        <i class="left-menu-icon fas fa-users"></i>
-        <i class="left-menu-icon fas fa-bookmark"></i>
+        <a href="index.php" class="left-menu-icon">
+            <i class="fas fa-home"></i><!-- if you want text beside the icon -->
+        </a>
+        <a href="profile.php" class="profile-link">
+            <i class="left-menu-icon fas fa-users"></i>
+        </a>
+        <a href="watchlist.php" class="left-menu-icon fas fa-bookmark"></a>
     </div>
     <div class="container">
         <div class="content-container">
             <div class="featured-content"
                 style="background: linear-gradient(to bottom, rgba(0,0,0,0), #151515), url('img/f-1.jpg');">
-                <img class="featured-title" src="img/f-t-1.png" alt="">
+                <img class="featured-title" src="img/movie1.jpg" alt="">
                 <p class="featured-desc">Place Holder.</p>
                 <button class="featured-button">Rate</button>
             </div>
@@ -69,19 +70,19 @@ require("request-db.php");
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="img/1.jpeg" alt="">
+                            <img class="movie-list-item-img" src="img/movie1.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Place Holder.</p>
                             <button class="movie-list-item-button">Rate</button>
                         </div>
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="img/2.jpeg" alt="">
-                            <span class="movie-list-item-title">Star Wars</span>
+                            <img class="movie-list-item-img" src="img/movie2.jpg" alt="">
+                            <span class="movie-list-item-title">Suzume</span>
                             <p class="movie-list-item-desc">Place Holder.</p>
                             <button class="movie-list-item-button">Rate</button>
                         </div>
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="img/3.jpg" alt="">
+                            <img class="movie-list-item-img" src="img/movie1.jpg" alt="">
                             <span class="movie-list-item-title">Storm</span>
                             <p class="movie-list-item-desc">Place Holder.</p>
                             <button class="movie-list-item-button">Rate</button>
@@ -222,6 +223,7 @@ require("request-db.php");
             </div>
         </div>
     </div>
+    
     <script src="app.js"></script>
 </body>
 

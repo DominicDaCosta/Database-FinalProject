@@ -1,3 +1,11 @@
+<?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require("connect-db.php");    // include("connect-db.php");
+require("request-db.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

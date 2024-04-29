@@ -1,11 +1,13 @@
 <?php
 
-function getMovieInfo()
+function getMovieDetailsByID($movieID)
 {
     global $db;
-    $query = "SELECT title, releaseYear, runtime, avgRating FROM movie natural join imdb_info";
+    $query = "SELECT title, releaseYear, runtime, avgRating FROM movie natural join imdb_info where movieID=:movieID";
     
     $statement = $db->prepare($query);
+
+    $statement->bindValue('movieID', $movieID);
     $statement->execute();
     $result = $statement->fetchAll();
     $statement->closeCursor();
@@ -13,17 +15,45 @@ function getMovieInfo()
     return $result;
 }
 
-function getMoviebyTitle()
+function getMoviebyTitle($searchTerm)
 {
     global $db;
-    $query = "SELECT title, releaseYear, runtime, avgRating FROM movie natural join imdb_info where title like :searchTerm";
-    $searchTerm = '%' . $searchTerm . '%';
+    $query = "SELECT movieID, title, releaseYear, runtime, avgRating FROM movie natural join imdb_info where title like concat ('%', :searchTerm, '%')";
     
     $statement = $db->prepare($query);
 
     $statement->bindValue(':searchTerm', $searchTerm);
     $statement->execute();
     $result = $statement->fetchAll();
+    $statement->closeCursor();
+
+    return $result;
+}
+
+function filterMovieByRating($avgRating) 
+{
+    global $db;
+    $query = "select movieID, title, releaseYear, runtime, avgRating from movie natural join imdb_info where avgRating >= :avgRating";
+    
+    $statement = $db->prepare($query);
+    $statement->bindValue(':avgRating', $avgRating);
+    $statement->execute();
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $statement->closeCursor();
+
+    return $result;
+}
+
+function getMoviesBySearchAndRating($searchTerm, $avgRating)
+{
+    global $db;
+    $query = "select movieID, title, releaseYear, runtime, avgRating from movie natural join imdb_info where title like concat ('%', :searchTerm, '%') and avgRating >= :avgRating";
+    
+    $statement = $db->prepare($query);
+    $statement->bindValue(':searchTerm', $searchTerm);
+    $statement->bindValue(':avgRating', $avgRating);
+    $statement->execute();
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
     $statement->closeCursor();
 
     return $result;
@@ -121,11 +151,11 @@ function getMoviesbyListID($listID)
 // CHECK ON THIS ONE
 function addReview($userID, $movieID, $rating, $content)
 {
-    global db;
+    global $db;
     $query = "insert into review (userID, movieID, rating, content) VALUES (:userID, :movieID, :rating, :content)";
 
     try {
-        $statement = $db->prepare($query)
+        $statement = $db->prepare($query);
         $statement->bindValue(':userID', $userID);
         $statement->bindValue(':movieID', $movieID);
         $statement->bindValue(':rating', $rating);
@@ -145,7 +175,7 @@ function addWatchlist($ltitle, $userID)
     $query = "INSERT INTO watchlist (ltitle, list_desc, userID) VALUES (:ltitle, :list_desc, :userID)";
 
     try {
-        $statement = $db->prepare($query)
+        $statement = $db->prepare($query);
         $statement->bindValue(':ltitle', $ltitle);
         $statement->bindValue(':list_desc', $list_desc);
         $statement->bindValue(':userID', $userID);
@@ -164,7 +194,7 @@ function addMovie($movieID, $listID, $has_watched)
     $query = "INSERT INTO is_added (movieID, listID, has_watched) VALUES (:movieID, :listID, :has_watched)";
 
     try {
-        $statement = $db->prepare($query)
+        $statement = $db->prepare($query);
         $statement->bindValue(':movieID', $movieID);
         $statement->bindValue(':listID', $movieID);
         $statement->bindValue(':has_watched', $has_watched);
@@ -247,25 +277,11 @@ function deleteMovie($movieID, $listID)
 
 function filterMovieByGenre($gname)
 {
-    global db;
+    global $db;
     $query = "select title, releaseYear from movie natural join movie_genre where gname=:gname";
     
-    $statement = $db->prepare($query)
+    $statement = $db->prepare($query);
     $statement->bindValue(':gname', $gname);
-    $statement->execute();
-    $result = $statement->fetch();
-    $statement->closeCursor();
-
-    return $result;
-}
-
-function filterMovieByRating($avgRating) 
-{
-    global db;
-    $query = "select title, releaseYear, runtime, avgRating from movie natural join imdb_info where avgRating > :avgRating";
-    
-    $statement = $db->prepare($query)
-    $statement->bindValue(':avgRating', $avgRating);
     $statement->execute();
     $result = $statement->fetch();
     $statement->closeCursor();

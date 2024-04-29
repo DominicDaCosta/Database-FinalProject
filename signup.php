@@ -1,3 +1,11 @@
+<?php 
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require("connect-db.php");    // include("connect-db.php");
+require("request-db.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,7 +34,7 @@
                     <input type="email" id="email" name="email" required placeholder="Enter your email">
                 </div>
                 <button type="submit" class="btn-login">Sign Up</button>
-                <p class="signup-text">Already have an account? <a href="login.html">Login</a></p>
+                <p class="signup-text">Already have an account? <a href="login.php">Login</a></p>
             </form>
         </div>
     </div>
